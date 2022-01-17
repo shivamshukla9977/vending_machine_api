@@ -1,0 +1,50 @@
+require: rubocop-rails
+
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+    - lib/**/*.rb
+    - app/**/*.rb
+    - db/**/*.rb
+    - app/javascript/packs/**/*.js
+  Exclude:
+    - db/migrate/*.rb
+    - db/schema.rb
+    - test/**/*.rb
+    - bin/*
+
+Rails:
+  Enabled: true
+
+# Commonly used screens these days easily fit more than 80 characters.
+Layout/LineLength:
+  Max: 150
+
+Metrics/ModuleLength:
+  Max: 150
+
+Metrics/ParameterLists:
+  Max: 6
+
+Metrics/MethodLength:
+  Enabled: false # Tracked by CodeClimate
+
+Metrics/BlockLength:
+  Max: 35
+
+# The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
+Metrics/ClassLength:
+  Enabled: false # Tracked by CodeClimate
+
+# Modifiers should be indented as deep as method definitions, or as deep as the class/module keyword, depending on configuration.
+Layout/AccessModifierIndentation:
+  Enabled: true
+
+# Here we check if the elements of a multi-line array literal are aligned.
+Layout/ArrayAlignment:
+  Enabled: true
+
+Documentation:
+  Enabled: false
